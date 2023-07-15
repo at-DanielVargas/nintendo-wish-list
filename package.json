@@ -6,6 +6,7 @@
     "dev:backend": "npx nx serve backend",
     "dev:front": "npx nx serve nintendo-wish-list",
     "build:backend": "npx nx build backend --prod --bundle",
+    "build:front": "npx nx build nintendo-wish-list --prod",
     "start:backend": "node dist/packages/backend/main.js",
     "deploy:backend": "npm run build:backend && fly deploy",
     "prepare": "husky install",
