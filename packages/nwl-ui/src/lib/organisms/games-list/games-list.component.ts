@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Game } from '@maxi/shared-types';
 
 @Component({
@@ -8,4 +8,6 @@ import { Game } from '@maxi/shared-types';
 })
 export class GamesListComponent {
   @Input() wishlist: Game[] | null = [];
+  @Output() unlikeGame: EventEmitter<Game> = new EventEmitter();
+  @Output() buyGame: EventEmitter<Game> = new EventEmitter();
 }

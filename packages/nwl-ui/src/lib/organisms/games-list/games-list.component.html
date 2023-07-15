@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row py-5">
     <div class="col-12 col-md-7">
-      <h1 class="text-white">Lista de deseos</h1>
+      <h1 class="text-white">
+        <nwl-ui-text>Lista de deseos</nwl-ui-text>
+      </h1>
       <p class="text-white mb-0">
         Explora, adquiere o remueve artículos de tu lista de deseos aquí.
         También puedes compartir tu lista con tu familia y tus amigos.
@@ -11,9 +13,21 @@
       <nwl-ui-button>Compartir lista</nwl-ui-button>
     </div>
   </div>
-  <div class="row">
-    <div class="col-12" *ngFor="let game of wishlist">
-      <nwl-ui-game-card [game]="game"></nwl-ui-game-card>
+
+  <div class="vstack gap-2">
+    <div *ngIf="wishlist?.length === 0">
+      <div class="nes-container is-dark is-rounded py-5">
+        <nwl-ui-text variant="disabled">
+          Aún no has agregado nada a tu lista deseos.
+        </nwl-ui-text>
+      </div>
     </div>
+
+    <nwl-ui-game-list-item
+      *ngFor="let game of wishlist"
+      [game]="game"
+      (unlike)="unlikeGame.emit(game)"
+      (buyGame)="buyGame.emit(game)"
+    ></nwl-ui-game-list-item>
   </div>
 </div>
