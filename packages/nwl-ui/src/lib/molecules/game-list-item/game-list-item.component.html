@@ -1,0 +1,28 @@
+<section class="nes-container is-rounded">
+  <div class="d-flex flex-column flex-sm-column flex-md-row justify-content-between">
+    <div class="hstack gap-4">
+      <div class="avatar">
+        <img [alt]="game?.name" [src]="game?.background_image" />
+      </div>
+      <div class="profile">
+        <h4 class="name">{{ game?.name }}</h4>
+        <p>{{ game?.released }}</p>
+      </div>
+    </div>
+
+    <div class="hstack gap-4">
+      <nwl-ui-button variant="error" (click)="dialog.showModal()">Adquirir la versión digital</nwl-ui-button>
+      <nwl-ui-like-button [active]="game?.inWishlist" (like)="unlike.emit($event)"></nwl-ui-like-button>
+    </div>
+  </div>
+</section>
+<dialog nwlUiDialog #dialog title="Yupi!">
+  <ng-template nwlUiDialogContent>
+    <div class="mb-2">
+      <b>Videojuego adquirido correctamente</b> ({{game?.name}})
+    </div>
+  </ng-template>
+  <ng-template nwlUiDialogFooter>
+    <button>Save</button>
+  </ng-template>
+</dialog>

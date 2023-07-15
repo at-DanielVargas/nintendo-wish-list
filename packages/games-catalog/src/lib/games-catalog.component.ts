@@ -49,7 +49,9 @@ export class GamesCatalogComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onScroll(): void {
-    if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+    const currentScroll = window.innerHeight + window.scrollY;
+    const documentHeight = document.body.scrollHeight;
+    if (currentScroll >= documentHeight) {
       this.store
         .pipe(
           untilDestroyed(this),

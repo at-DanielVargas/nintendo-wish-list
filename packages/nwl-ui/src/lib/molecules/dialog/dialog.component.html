@@ -1,0 +1,14 @@
+<section class="container">
+  <header>
+    <ng-container #headerVcr></ng-container>
+    <h3 *ngIf="!header?.tpl">{{ title }}</h3>
+  </header>
+
+  <main>
+    <ng-container #contentVcr></ng-container>
+  </main>
+  <footer>
+    <nwl-ui-button (click)="close()">Close</nwl-ui-button>
+    <ng-container #footerVcr></ng-container>
+  </footer>
+</section>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Route } from '@angular/router';
 import { wishlistRoutes } from './lib.routes';
@@ -14,5 +14,6 @@ import { WishlistComponent } from './wishlist.component';
     NwlUiModule,
   ],
   declarations: [WishlistComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class WishlistModule {}

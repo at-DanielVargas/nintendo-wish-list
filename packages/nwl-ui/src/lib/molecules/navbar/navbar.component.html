@@ -1,22 +1,21 @@
-<header
-  class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 px-3"
->
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 px-3">
   <div class="col-md-3 mb-2 mb-md-0">
-    <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-      p
+    <a [routerLink]="['/']" class="d-inline-flex link-body-emphasis text-decoration-none">
+      <nwl-ui-text>NWL</nwl-ui-text>
     </a>
   </div>
 
   <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
     <li>
-      <a [routerLink]="['/games']" class="nav-link px-2 link-secondary"
-        >Juegos</a
-      >
+      <a [routerLink]="['/games']" routerLinkActive="text-white" class="nav-link text-decoration-none px-2"><nwl-ui-text
+          variant="purple" [hoverable]="true">
+          Juegos
+        </nwl-ui-text></a>
     </li>
     <li>
-      <a [routerLink]="['/wishlist']" href="#" class="nav-link px-2"
-        >Lista de deseos</a
-      >
+      <a [routerLink]="['/wishlist']" routerLinkActive="text-white"
+        class="nav-link text-decoration-none px-2"><nwl-ui-text>Lista de
+          deseos</nwl-ui-text></a>
     </li>
   </ul>
 

@@ -6,5 +6,14 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./text.component.scss'],
 })
 export class TextComponent {
-  @Input() variant!: 'primary' | 'success' | 'warning' | 'error' | 'disabled';
+  @Input() hoverable = false;
+  @Input() variant!:
+    | 'primary'
+    | 'success'
+    | 'warning'
+    | 'error'
+    | 'disabled'
+    | 'purple';
+
+  variantName = `is-${this.variant}`;
 }

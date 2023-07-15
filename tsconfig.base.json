@@ -20,7 +20,8 @@
       "@maxi/nwl-ui": ["packages/nwl-ui/src/index.ts"],
       "@maxi/shared-types": ["packages/shared-types/src/index.ts"],
       "@maxi/wishlist": ["packages/wishlist/src/index.ts"]
-    }
+    },
+    "types": ["node"]
   },
   "exclude": ["node_modules", "tmp"]
 }

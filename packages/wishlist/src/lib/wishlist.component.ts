@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { State } from '@maxi/global-state';
+import { RemoveFromWishlist, State } from '@maxi/global-state';
 import { Game } from '@maxi/shared-types';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Store, select } from '@ngrx/store';
@@ -18,4 +18,12 @@ export class WishlistComponent {
   );
 
   constructor(private store: Store<State>) {}
+
+  removeFromWishlist(game: Game): void {
+    this.store.dispatch(RemoveFromWishlist({ payload: { id: game.id } }));
+  }
+
+  buyGame(game: Game): void {
+    alert(game.name);
+  }
 }
