@@ -10,7 +10,7 @@
       </p>
     </div>
     <div class="col-5 d-flex justify-content-end align-items-center">
-      <nwl-ui-button>Compartir lista</nwl-ui-button>
+      <nwl-ui-button variant="primary">Compartir lista</nwl-ui-button>
     </div>
   </div>
 
@@ -23,11 +23,8 @@
       </div>
     </div>
 
-    <nwl-ui-game-list-item
-      *ngFor="let game of wishlist"
-      [game]="game"
-      (unlike)="unlikeGame.emit(game)"
-      (buyGame)="buyGame.emit(game)"
-    ></nwl-ui-game-list-item>
+    <nwl-ui-game-list-item *ngFor="let game of wishlist" [game]="game" (unlike)="unlikeGame.emit(game)"
+      (buyGame)="buyGame.emit(game)">
+    </nwl-ui-game-list-item>
   </div>
 </div>

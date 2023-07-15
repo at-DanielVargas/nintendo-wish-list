@@ -15,6 +15,12 @@ import { FooterComponent } from './molecules/footer/footer.component';
 import { LikeButtonComponent } from './molecules/like-button/like-button.component';
 import { RouterModule } from '@angular/router';
 import { GameListItemComponent } from './molecules/game-list-item/game-list-item.component';
+import {
+  DialogComponent,
+  DialogContentDirective,
+  DialogFooterDirective,
+  DialogHeaderDirective,
+} from './molecules/dialog/dialog.component';
 
 const components = [
   InputComponent,
@@ -30,11 +36,18 @@ const components = [
   FooterComponent,
   LikeButtonComponent,
   GameListItemComponent,
+  DialogComponent,
+];
+
+const directives = [
+  DialogContentDirective,
+  DialogFooterDirective,
+  DialogHeaderDirective,
 ];
 
 @NgModule({
   imports: [CommonModule, RouterModule],
-  declarations: [...components],
-  exports: [...components],
+  declarations: [...components, ...directives],
+  exports: [...components, ...directives],
 })
 export class NwlUiModule {}

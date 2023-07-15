@@ -51,8 +51,6 @@ export class GamesCatalogComponent implements OnInit {
   onScroll(): void {
     const currentScroll = window.innerHeight + window.scrollY;
     const documentHeight = document.body.scrollHeight;
-    console.log({ currentScroll, documentHeight });
-
     if (currentScroll >= documentHeight) {
       this.store
         .pipe(

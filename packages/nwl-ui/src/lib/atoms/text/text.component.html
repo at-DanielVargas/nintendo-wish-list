@@ -1,3 +1,4 @@
-<span [className]="variant ? 'nes-text is-' + variant : 'nes-text'">
+<span class="nex-text" [class.hoverable]="hoverable" [class]="{variantName: variant}" [class.is-purple]="rla.isActive"
+    routerLinkActive #rla="routerLinkActive">
     <ng-content></ng-content>
 </span>
