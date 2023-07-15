@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export abstract class BaseService {
-  private baseUrl = 'https://maxi-nwl.fly.dev/api';
+  private baseUrl = process.env['NG_APP_ENV'];
 
   constructor(private http: HttpClient) {}
 
