@@ -1,10 +1,10 @@
 name: Fly Deploy
 on:
-  pull_request:
+  push:
     branches:
       - master
-    paths:
-      - packages/backend
+  pull_request:
+    
 jobs:
   deploy:
     name: Deploy app
