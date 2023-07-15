@@ -1,6 +1,6 @@
 <section class="nes-container is-rounded">
   <div class="d-flex flex-column flex-sm-column flex-md-row justify-content-between">
-    <div class="hstack gap-4">
+    <div class="hstack gap-4 mb-sm-3">
       <div class="avatar">
         <img [alt]="game?.name" [src]="game?.background_image" />
       </div>
@@ -10,8 +10,8 @@
       </div>
     </div>
 
-    <div class="hstack gap-4">
-      <nwl-ui-button variant="error" (click)="dialog.showModal()">Adquirir la versión digital</nwl-ui-button>
+    <div class="hstack gap-4 mt-3 mt-md-0">
+      <nwl-ui-button variant="error" (click)="dialog.showModal()">Adquirir</nwl-ui-button>
       <nwl-ui-like-button [active]="game?.inWishlist" (like)="unlike.emit($event)"></nwl-ui-like-button>
     </div>
   </div>
@@ -22,7 +22,7 @@
       <b>Videojuego adquirido correctamente</b> ({{game?.name}})
     </div>
   </ng-template>
-  <ng-template nwlUiDialogFooter>
+  <!-- <ng-template nwlUiDialogFooter>
     <button>Save</button>
-  </ng-template>
+  </ng-template> -->
 </dialog>

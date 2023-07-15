@@ -1,6 +1,8 @@
 <button
   [type]="type"
-  [className]="variant ? 'nes-btn is-' + variant : 'nes-btn'"
+  class="nes-btn"
+  [class]="{variantName: variant}"
+  
 >
   <nwl-ui-text>
     <ng-content></ng-content>

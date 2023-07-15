@@ -32,7 +32,7 @@ export class LikeButtonComponent implements OnInit {
       setTimeout(() => {
         this.like.emit(true);
         this.imageSource = this.states[2][1];
-      }, 1800);
+      }, 800);
     }
   }
 }

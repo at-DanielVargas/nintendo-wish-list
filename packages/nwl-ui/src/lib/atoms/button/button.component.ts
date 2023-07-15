@@ -8,4 +8,7 @@ import { Component, Input } from '@angular/core';
 export class ButtonComponent {
   @Input() type: 'button' | 'submit' | 'reset' = 'button';
   @Input() variant!: 'primary' | 'success' | 'warning' | 'error' | 'disabled';
+  @Input() size: 'small' | 'medium' | 'large' = 'small';
+
+  variantName = `is-${this.variant}`;
 }

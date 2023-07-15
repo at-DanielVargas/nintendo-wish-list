@@ -2,8 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import { MockData } from './mock-data';
-import { Game } from '@maxi/shared-types';
+import { Game, MockData } from '@maxi/shared-types';
 
 const host = process.env.HOST ?? 'localhost';
 const port = process.env.PORT ? Number(process.env.PORT) : 3000;
@@ -41,7 +40,7 @@ app.get('/api/games', (req, res) => {
       }
     });
   }
-  let games: Game[] = data.slice(startIndex, endIndex);
+  const games: Game[] = data.slice(startIndex, endIndex);
   const totalPages = Math.ceil(data.length / pageSize);
 
   res.json({
