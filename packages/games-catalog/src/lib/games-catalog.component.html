@@ -1,0 +1,9 @@
+<nwl-ui-navbar></nwl-ui-navbar>
+<nwl-ui-banner></nwl-ui-banner>
+<nwl-ui-games-grid
+  [games]="games$ | async"
+  [status]="networkStatus$ | async"
+  (changeSortOrder)="sort($event)"
+  (gameLike)="addGameToWishlist($event)"
+></nwl-ui-games-grid>
+<nwl-ui-footer></nwl-ui-footer>
