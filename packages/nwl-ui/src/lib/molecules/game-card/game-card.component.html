@@ -1,0 +1,15 @@
+<div class="nes-container is-rounded p-0 w-100 card-bg position-relative">
+  <img [src]="game?.background_image" class="card-img-top" alt="..." />
+  <div class="p-3">
+    <h5 class="card-title">
+      <nwl-ui-text>{{ game?.name }}</nwl-ui-text>
+    </h5>
+    <small>
+      <nwl-ui-text variant="disabled">{{ game?.released }}</nwl-ui-text>
+    </small>
+  </div>
+  <nwl-ui-like-button
+    [active]="game?.inWishlist"
+    (like)="like.emit($event)"
+  ></nwl-ui-like-button>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row py-5">
+    <div class="col-12 col-md-7">
+      <h1 class="text-white">Lista de deseos</h1>
+      <p class="text-white mb-0">
+        Explora, adquiere o remueve artículos de tu lista de deseos aquí.
+        También puedes compartir tu lista con tu familia y tus amigos.
+      </p>
+    </div>
+    <div class="col-5 d-flex justify-content-end align-items-center">
+      <nwl-ui-button>Compartir lista</nwl-ui-button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12" *ngFor="let game of wishlist">
+      <nwl-ui-game-card [game]="game"></nwl-ui-game-card>
+    </div>
+  </div>
+</div>

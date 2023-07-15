@@ -1,0 +1,9 @@
+<label for="default_select" *ngIf="label">{{ label }}</label>
+<div class="nes-select">
+  <select required id="default_select" (change)="selectChange.emit($event)">
+    <option value="" disabled selected hidden>{{ placeholder }}</option>
+    <option [value]="option.value" *ngFor="let option of options">
+      {{ option.label }}
+    </option>
+  </select>
+</div>
