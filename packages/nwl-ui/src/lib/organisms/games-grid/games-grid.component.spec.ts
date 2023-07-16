@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { GamesGridComponent } from './games-grid.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { SelectComponent } from '../../atoms';
 
 describe('GamesGridComponent', () => {
   let component: GamesGridComponent;
@@ -7,7 +9,8 @@ describe('GamesGridComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GamesGridComponent],
+      declarations: [GamesGridComponent, SelectComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 
     fixture = TestBed.createComponent(GamesGridComponent);

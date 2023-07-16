@@ -7,7 +7,11 @@ import {
   tick,
 } from '@angular/core/testing';
 import { GamesCatalogComponent } from './games-catalog.component';
-import { GamesGridComponent, NwlUiModule } from '@maxi/nwl-ui';
+import {
+  GameCardComponent,
+  GamesGridComponent,
+  NwlUiModule,
+} from '@maxi/nwl-ui';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import {
   AddToWishlist,
@@ -30,7 +34,6 @@ describe('GamesCatalogComponent', () => {
   let gamesGrid: GamesGridComponent;
   let fixture: ComponentFixture<GamesCatalogComponent>;
   let store: MockStore;
-  let gamesService: GamesService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -42,12 +45,6 @@ describe('GamesCatalogComponent', () => {
       declarations: [GamesCatalogComponent],
       providers: [
         provideMockStore({ initialState: InitialGamesState }),
-        {
-          provide: GamesService,
-          useValue: {
-            getGames: jest.fn((query: string) => of({ games: MockData.games })),
-          },
-        },
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
@@ -61,8 +58,6 @@ describe('GamesCatalogComponent', () => {
     fixture = TestBed.createComponent(GamesCatalogComponent);
     component = fixture.componentInstance;
     store = TestBed.inject(Store) as MockStore;
-    gamesService = TestBed.inject(GamesService) as jest.Mocked<GamesService>;
-    // gamesService.getGames.
     store.setState({
       games: { ...InitialGamesState },
       wishlist: { ...InitialWishlistState },
@@ -73,43 +68,91 @@ describe('GamesCatalogComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should dispatch games request in ngOninit', () => {
-    jest.spyOn(store, 'dispatch');
-    component.ngOnInit();
-    expect(store.dispatch).toHaveBeenCalledWith(GetGames({ payload: {} }));
+  it('should display ads banner', () => {
+    const bannerEelement =
+      fixture.debugElement.nativeElement.getElementsByTagName('NWL-UI-BANNER');
+    expect(bannerEelement).toBeDefined();
   });
 
-  it('should display 15 elements on load', () => {
+  it('should display 15 elements on load', fakeAsync(() => {
     store.setState({
       games: {
-        games: MockData.games.map((game) => ({ ...game, inWishlist: false })),
+        games: MockData.games
+          .map((game) => ({ ...game, inWishlist: false }))
+          .slice(0, 15),
+      },
+      wishlist: {
+        items: [],
+      },
+    });
+    component.games$.subscribe((games) => {
+      expect(games).toEqual(
+        MockData.games
+          .map((game) => ({ ...game, inWishlist: false }))
+          .slice(0, 15)
+      );
+      fixture.detectChanges();
+      const gameCardElements = Array.from(
+        fixture.debugElement.nativeElement.getElementsByTagName(
+          'NWL-UI-GAME-CARD'
+        )
+      ).length;
+      expect(gameCardElements).toEqual(15);
+    });
+    tick();
+  }));
+
+  it('should add 15 more elements on page scroll to bottom of cards', () => {
+    store.setState({
+      games: {
+        games: MockData.games
+          .map((game) => ({ ...game, inWishlist: false }))
+          .slice(0, 15),
+        query: {
+          totalPages: 3,
+          page: 1,
+        },
+      },
+      wishlist: {
+        items: [],
       },
     });
 
-    // fixture.debugElement.query()
-
     component.games$.subscribe((games) => {
-      expect(games).toEqual(
-        MockData.games.map((game) => ({ ...game, inWishlist: false }))
+      jest.spyOn(component, 'onScroll');
+      jest.spyOn(store, 'dispatch');
+      const scrollEvent = new Event('scroll');
+      window.dispatchEvent(scrollEvent);
+      expect(component.onScroll).toHaveBeenCalled();
+      Object.defineProperty(window, 'innerHeight', { value: 500 });
+      Object.defineProperty(window, 'scrollY', { value: 1000 });
+      Object.defineProperty(document.body, 'scrollHeight', { value: 1500 });
+      const storeResponse = { currentPage: 1, totalPages: 2 };
+      jest.spyOn(store, 'pipe').mockReturnValue(of(storeResponse));
+      component.onScroll();
+      expect(store.dispatch).toHaveBeenCalledWith(
+        GetGames({
+          payload: { query: { page: storeResponse.currentPage + 1 } },
+        })
       );
     });
   });
 
-  it('order games asc mode', () => {
+  it('should order games by asc sort order', () => {
     const fakeEvent = { target: { value: 'asc' } };
     jest.spyOn(component, 'sort');
     gamesGrid.changeSortOrder.emit(fakeEvent);
     expect(component.sort).toHaveBeenCalledWith(fakeEvent);
   });
 
-  it('order games desc mode', () => {
+  it('should order games by desc sort order', () => {
     const fakeEvent = { target: { value: 'desc' } };
     jest.spyOn(component, 'sort');
     gamesGrid.changeSortOrder.emit(fakeEvent);
     expect(component.sort).toHaveBeenCalledWith(fakeEvent);
   });
 
-  it('should add game to wishlist state', () => {
+  it('should add game to wishlist state when like button is clicked', () => {
     const game = MockData.games[3];
     jest.spyOn(component, 'addGameToWishlist');
     jest.spyOn(store, 'dispatch');

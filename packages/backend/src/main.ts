@@ -2,7 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import { Game, MockData } from '@maxi/shared-types';
+import { Game } from '@maxi/shared-types';
+import { MockData } from './mock-data';
 
 const host = process.env.HOST ?? 'localhost';
 const port = process.env.PORT ? Number(process.env.PORT) : 3000;

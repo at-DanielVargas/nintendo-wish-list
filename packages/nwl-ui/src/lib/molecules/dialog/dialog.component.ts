@@ -62,13 +62,16 @@ export class DialogComponent {
     this.host.nativeElement.showModal();
 
     if (this.contentVcr && this.content) {
+      this.contentVcr.clear();
       this.contentVcr.createEmbeddedView(this.content.tpl);
     }
 
     if (this.headerVcr && this.header) {
+      this.headerVcr.clear();
       this.headerVcr.createEmbeddedView(this.header.tpl);
     }
     if (this.footerVcr && this.footer) {
+      this.footerVcr.clear();
       this.footerVcr?.createEmbeddedView(this.footer.tpl);
     }
   }
@@ -85,8 +88,6 @@ export class DialogComponent {
       },
       { once: true }
     );
-
-    this.element.setAttribute('closing', 'true');
 
     this.element.close();
     this.clear();

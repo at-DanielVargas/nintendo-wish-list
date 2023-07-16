@@ -1,4 +1,4 @@
-<span class="nex-text" [class.hoverable]="hoverable" [class]="{variantName: variant}" [class.is-purple]="rla.isActive"
-    routerLinkActive #rla="routerLinkActive">
+<span class="nes-text" [class.hoverable]="hoverable" [ngClass]="[variant?variantName:'']"
+    [class.is-purple]="rla.isActive" routerLinkActive #rla="routerLinkActive">
     <ng-content></ng-content>
 </span>
