@@ -14,6 +14,7 @@
 // $font-family-base: 'Press Start 2P';
 
 $font-family-base: 'DotGothic16';
+$font-size-base: 0.75rem;
 
 // 5. Include remainder of required parts
 @import '../../../node_modules/bootstrap/scss/maps';
@@ -40,4 +41,8 @@ $font-family-base: 'DotGothic16';
 
 .nes-container.is-rounded {
   border-image-repeat: inherit;
+}
+
+.nes-btn.is-small {
+  padding: 0;
 }

@@ -1,14 +1,17 @@
-<section class="container">
-  <header>
+<section class="nes-container with-title">
+  <p class="title" *ngIf="!header?.tpl">
+    <nwl-ui-text>{{ title }}</nwl-ui-text>
+  </p>
+  <!-- <header>
     <ng-container #headerVcr></ng-container>
     <h3 *ngIf="!header?.tpl">{{ title }}</h3>
-  </header>
+  </header> -->
 
   <main>
     <ng-container #contentVcr></ng-container>
   </main>
   <footer>
-    <nwl-ui-button (click)="close()">Close</nwl-ui-button>
+    <!-- <nwl-ui-button size="small" (click)="close()">Close</nwl-ui-button> -->
     <ng-container #footerVcr></ng-container>
   </footer>
 </section>

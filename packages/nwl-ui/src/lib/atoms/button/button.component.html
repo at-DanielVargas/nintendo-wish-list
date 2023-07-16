@@ -1,7 +1,4 @@
-<button
-  [type]="type"
-  [className]="variant ? 'nes-btn is-' + variant : 'nes-btn'"
->
+<button [type]="type" [ngClass]="[variant?variantName:'', size?sizeName:'']" class="nes-btn">
   <nwl-ui-text>
     <ng-content></ng-content>
   </nwl-ui-text>

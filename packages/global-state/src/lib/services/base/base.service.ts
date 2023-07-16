@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export abstract class BaseService {
-  private baseUrl = process.env['NG_APP_ENV'];
+  private baseUrl = process.env['NG_APP_URL'];
 
   constructor(private http: HttpClient) {}
 

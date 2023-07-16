@@ -4,11 +4,12 @@
   "license": "MIT",
   "scripts": {
     "dev:backend": "npx nx serve backend",
-    "dev:front": "npx nx serve nintendo-wish-list",
+    "dev:front": "npx nx serve nintendo-wish-list --skip-nx-cache",
     "build:backend": "npx nx build backend --prod --bundle",
     "build:front": "npx nx build nintendo-wish-list --prod",
     "start:backend": "node dist/packages/backend/main.js",
     "deploy:backend": "npm run build:backend && fly deploy",
+    "test:front": "npx nx test games-catalog -- --watch",
     "prepare": "husky install",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",

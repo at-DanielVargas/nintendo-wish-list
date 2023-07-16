@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RemoveFromWishlist, State } from '@maxi/global-state';
 import { Game } from '@maxi/shared-types';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   templateUrl: './wishlist.component.html',
   styleUrls: ['./wishlist.component.scss'],
 })
-export class WishlistComponent {
+export class WishlistComponent implements OnInit {
   wishlist$: Observable<Game[]> = this.store.pipe(
     untilDestroyed(this),
     select(({ wishlist }) => wishlist.items)
@@ -19,11 +19,9 @@ export class WishlistComponent {
 
   constructor(private store: Store<State>) {}
 
+  ngOnInit(): void {}
+
   removeFromWishlist(game: Game): void {
     this.store.dispatch(RemoveFromWishlist({ payload: { id: game.id } }));
-  }
-
-  buyGame(game: Game): void {
-    alert(game.name);
   }
 }

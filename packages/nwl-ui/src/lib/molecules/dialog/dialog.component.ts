@@ -58,16 +58,22 @@ export class DialogComponent {
 
   constructor(private host: ElementRef) {}
 
-  ngAfterContentInit() {}
-
   showModal() {
     this.host.nativeElement.showModal();
-    this.contentVcr &&
+
+    if (this.contentVcr && this.content) {
+      this.contentVcr.clear();
       this.contentVcr.createEmbeddedView(this.content.tpl);
-    this.headerVcr &&
+    }
+
+    if (this.headerVcr && this.header) {
+      this.headerVcr.clear();
       this.headerVcr.createEmbeddedView(this.header.tpl);
-    this.footerVcr &&
+    }
+    if (this.footerVcr && this.footer) {
+      this.footerVcr.clear();
       this.footerVcr?.createEmbeddedView(this.footer.tpl);
+    }
   }
 
   close() {
@@ -82,8 +88,6 @@ export class DialogComponent {
       },
       { once: true }
     );
-
-    this.element.setAttribute('closing', 'true');
 
     this.element.close();
     this.clear();

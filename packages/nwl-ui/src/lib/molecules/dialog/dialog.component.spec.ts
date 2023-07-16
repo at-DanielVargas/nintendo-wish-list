@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DialogComponent } from './dialog.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ButtonComponent } from '../../atoms';
 
 describe('DialogComponent', () => {
   let component: DialogComponent;
@@ -7,7 +9,8 @@ describe('DialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DialogComponent],
+      declarations: [DialogComponent, ButtonComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DialogComponent);

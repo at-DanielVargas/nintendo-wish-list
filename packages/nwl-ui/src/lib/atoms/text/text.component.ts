@@ -15,5 +15,11 @@ export class TextComponent {
     | 'disabled'
     | 'purple';
 
-  variantName = `is-${this.variant}`;
+  variantName!: string;
+
+  ngOnInit(): void {
+    if (this.variant) {
+      this.variantName = `is-${this.variant}`;
+    }
+  }
 }

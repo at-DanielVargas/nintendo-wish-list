@@ -1,7 +1,4 @@
 <nwl-ui-navbar></nwl-ui-navbar>
-<nwl-ui-games-list
-  [wishlist]="wishlist$ | async"
-  (unlikeGame)="removeFromWishlist($event)"
-  (buyGame)="buyGame($event)"
-></nwl-ui-games-list>
+<nwl-ui-games-list [wishlist]="wishlist$ | async" (unlikeGame)="removeFromWishlist($event)"
+  (buyGame)="removeFromWishlist($event)"></nwl-ui-games-list>
 <nwl-ui-footer></nwl-ui-footer>

@@ -1,4 +1,4 @@
-import { Game } from '@maxi/shared-types';
+import { Game } from "./interfaces";
 
 export const MockData: { games: Game[] } = {
   games: [
