@@ -15,6 +15,8 @@ export class TextComponent {
     | 'disabled'
     | 'purple';
 
+  @Input() activeClass = '';
+
   variantName!: string;
 
   ngOnInit(): void {

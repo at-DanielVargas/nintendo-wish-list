@@ -15,11 +15,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot(appRoutes, {
+      initialNavigation: 'enabledBlocking',
+      scrollPositionRestoration: 'enabled',
+    }),
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([GamesEffects]),
     StoreDevtoolsModule.instrument(),
-    NgbModule
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
