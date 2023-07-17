@@ -1,6 +1,6 @@
 # Nintendo Wish List
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b9752ceb-bf73-447f-8cc4-ccfd15ba06a5/deploy-status)](https://app.netlify.com/sites/spontaneous-babka-4fc980/deploys) [![Fly Deploy](https://github.com/at-DanielVargas/nintendo-wish-list/actions/workflows/main.yml/badge.svg)](https://github.com/at-DanielVargas/nintendo-wish-list/actions/workflows/main.yml)
+[![codecov](https://codecov.io/gh/at-DanielVargas/nintendo-wish-list/branch/development/graph/badge.svg?token=TNFFXWKVZ2)](https://codecov.io/gh/at-DanielVargas/nintendo-wish-list) [![Netlify Status](https://api.netlify.com/api/v1/badges/b9752ceb-bf73-447f-8cc4-ccfd15ba06a5/deploy-status)](https://app.netlify.com/sites/spontaneous-babka-4fc980/deploys) [![Fly Deploy](https://github.com/at-DanielVargas/nintendo-wish-list/actions/workflows/main.yml/badge.svg)](https://github.com/at-DanielVargas/nintendo-wish-list/actions/workflows/main.yml)
 
 ejercicio angular utilizando un monorepositorio NX [Ejemplo de aplicación funcional](https://spontaneous-babka-4fc980.netlify.app)
 
