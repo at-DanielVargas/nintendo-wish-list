@@ -8,6 +8,7 @@ import { GamesEffects, metaReducers, reducers } from '@maxi/global-state';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([GamesEffects]),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],

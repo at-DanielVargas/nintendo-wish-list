@@ -1,4 +1,25 @@
 <nwl-ui-navbar></nwl-ui-navbar>
 <nwl-ui-games-list [wishlist]="wishlist$ | async" (unlikeGame)="removeFromWishlist($event)"
-  (buyGame)="removeFromWishlist($event)"></nwl-ui-games-list>
+  (buyGame)="displayDialog($event)"></nwl-ui-games-list>
 <nwl-ui-footer></nwl-ui-footer>
+
+
+<div class="modal fade" id="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <section class="nes-container with-title bg-white">
+        <p class="title">
+          <nwl-ui-text>Yupi!</nwl-ui-text>
+        </p>
+        <main>
+          <div class="mb-2">
+            <b>Videojuego adquirido correctamente</b> ({{buyedGame?.name}})
+          </div>
+        </main>
+        <footer>
+          <nwl-ui-button variant="success" size="small" (click)="closeDialog()">Lo tengo!</nwl-ui-button>
+        </footer>
+      </section>
+    </div>
+  </div>
+</div>

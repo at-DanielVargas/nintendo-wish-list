@@ -11,18 +11,8 @@
     </div>
 
     <div class="hstack gap-4 mt-3 mt-md-0">
-      <nwl-ui-button variant="error" (click)="dialog.showModal()">Adquirir</nwl-ui-button>
+      <nwl-ui-button variant="error" (click)="buyGame.emit()">Adquirir</nwl-ui-button>
       <nwl-ui-like-button [active]="game?.inWishlist" (like)="unlike.emit($event)"></nwl-ui-like-button>
     </div>
   </div>
 </section>
-<dialog nwlUiDialog #dialog title="Yupi!">
-  <ng-template nwlUiDialogContent>
-    <div class="mb-2">
-      <b>Videojuego adquirido correctamente</b> ({{game?.name}})
-    </div>
-  </ng-template>
-  <ng-template nwlUiDialogFooter>
-    <nwl-ui-button variant="success" size="small" (click)="closeDialog()">Lo tengo!</nwl-ui-button>
-  </ng-template>
-</dialog>
