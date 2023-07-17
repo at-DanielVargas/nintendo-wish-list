@@ -1,4 +1,7 @@
 :host {
     background-color: #b7e69c;
     display: block;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }

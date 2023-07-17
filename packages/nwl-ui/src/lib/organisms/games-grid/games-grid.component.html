@@ -1,37 +1,25 @@
 <div class="container">
   <div class="row g-5">
-    <div class="col-md-3">
-      <div class="position-sticky" style="top: 111px">
-        <div class="p-4 mb-3 bg-body-tertiary rounded">
-          <h4 class="fst-italic">About</h4>
-          <p class="mb-0">
-            Customize this section to tell your visitors a little bit about your
-            publication, writers, content, or something else entirely. Totally
-            up to you.
-          </p>
+
+    <div class="col-md-12">
+      <div class="row mb-5">
+        <div class="col-6 d-flex align-items-center">
+          <h5 class="m-0 text-white">
+            <nwl-ui-text>Catálogo de juegos</nwl-ui-text>
+          </h5>
         </div>
-      </div>
-    </div>
-    <div class="col-md-9">
-      <div class="row mb-5 justify-content-end">
-        <div class="col-5 text-end">
-          <nwl-ui-select
-            (selectChange)="changeSortOrder.emit($event)"
-            [options]="options"
-          ></nwl-ui-select>
+        <div class="col-6 d-flex justify-content-end">
+          <div class="hstack gap-4 justify-content-center">
+            <p class="m-0 text-white">Ordenar por:</p>
+            <nwl-ui-select (selectChange)="changeSortOrder.emit($event)" [options]="options"></nwl-ui-select>
+          </div>
         </div>
       </div>
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 row-cols-xl-3">
-        <div
-          class="col mb-3"
-          [class.last]="index > (games?.length ?? 0) - 4"
-          *ngFor="let game of games; let index = index"
-        >
-          <nwl-ui-game-card
-            [game]="game"
-            (like)="gameLike.emit(game)"
-          ></nwl-ui-game-card>
+        <div class="col mb-3" [class.last]="index > (games?.length ?? 0) - 4"
+          *ngFor="let game of games; let index = index">
+          <nwl-ui-game-card [game]="game" (like)="gameLike.emit(game)"></nwl-ui-game-card>
         </div>
       </div>
       <div class="row" *ngIf="status === networkStatus.PENDING">

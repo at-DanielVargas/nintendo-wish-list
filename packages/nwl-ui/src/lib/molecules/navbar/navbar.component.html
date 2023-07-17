@@ -1,26 +1,30 @@
 <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 px-3">
   <div class="col-md-3 mb-2 mb-md-0">
     <a [routerLink]="['/']" class="d-inline-flex link-body-emphasis text-decoration-none">
-      <nwl-ui-text>NWL</nwl-ui-text>
+      <img
+        src="https://preview.redd.it/osxot47fkzv61.png?width=256&format=png&auto=webp&s=e5ce56d4b875c16cb7bec23ad62c67b7cdfc6ecd"
+        alt="" width="30px" height="30px">
     </a>
   </div>
 
   <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
     <li>
-      <a [routerLink]="['/games']" routerLinkActive="text-white" class="nav-link text-decoration-none px-2"><nwl-ui-text
-          variant="purple" [hoverable]="true">
+      <a [routerLink]="['/games']" class="nav-link text-decoration-none px-2"><nwl-ui-text variant="purple"
+          [hoverable]="true" [activeClass]="'text-white'">
           Juegos
         </nwl-ui-text></a>
     </li>
     <li>
-      <a [routerLink]="['/wishlist']" routerLinkActive="text-white"
-        class="nav-link text-decoration-none px-2"><nwl-ui-text>Lista de
+      <a [routerLink]="['/wishlist']" class="nav-link text-decoration-none px-2"><nwl-ui-text variant="purple"
+          [hoverable]="true" [activeClass]="'text-white'">Lista de
           deseos</nwl-ui-text></a>
     </li>
   </ul>
 
   <div class="col-md-3 text-end">
-    <nwl-ui-button>Login</nwl-ui-button>
-    <nwl-ui-button>Sign-up</nwl-ui-button>
+    <div class="hstack gap-3 justify-content-end">
+      <nwl-ui-button>Iniciar sesión</nwl-ui-button>
+      <nwl-ui-button>Registro</nwl-ui-button>
+    </div>
   </div>
 </header>
